@@ -1,0 +1,2 @@
+# EmuSaveProfiles
+The ultimate tool for managing your emulator savefiles for multiple users. Specify your Save folder path(s) for all your emulators, and run the script with the desired 'User' along with your Emulator/Game Launcher of choice. If the User exists, it will use it's saves. If it doesn't, it creates an empty saves directory for that user. Will also let you Whitelist/Blacklist certain games, probably.
