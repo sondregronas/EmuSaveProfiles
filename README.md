@@ -3,16 +3,17 @@ Quick and dirty tool to manage mulitple users for savefiles for emulators.
 Written in Python 2.7.13
 <br>
 #### Usage:
-- Add all absolute filepaths to 'gamesaves' folders on multiple lines in savepaths.cfg, comment with # or space.<br>
-- Create a shortcut of the script, and change the target properties to: ```"MyDirectory\EmuSaveProfiles.py" usernamehere```. If no user is - specified, 'default' will be used.<br>
-- On the first run of the script, the current user will claim every folder in savepaths.cfg.<br>
-- When running the script with a different user, all folders will be renamed to <name>.<name_of_owner>, and a new folder will be made with a new .emusaves identifying file.<br>
-- Best enjoyed when run along with a gamelauncher like BigBox using a .bat file, can be run from the Nvidia Gamestream:<br>
+- Add the save-game folders on separate lines in savepaths.cfg (make comments with either # or space.<br>
+- Create a shortcut of the script, right click into properties and change the target properties to: ```"MyDirectory\EmuSaveProfiles.py" usernamehere```. If no user is specified, 'default' will be used.<br>
+- On the first run of the script, the current user will claim every folder in savepaths.cfg, by adding a file into each folder with an identifier like 'default.emusaves'.<br>
+- When running the script with a different user, all folders will be renamed to <name>.<name_of_owner>, and a new folder will be made with a new .emusaves identifying file. For example 'User1.emusaves'.<br>
+- Best enjoyed when run along with a gamelauncher like BigBox using a .bat file that can be run from the Nvidia Gamestream, like BigBox_User.bat:<br>
 ```
 BigBoxLauncher_MyUser
 @echo off
 start "" "EmuSaveProfile_MyUser.lnk"
-start "" "BigBox.exe"
+start /WAIT "" "BigBox.exe"
+exit
 ```
 <br>
-The script works by adding an identifier file to these folders, and renaming them when another user is in use. So if you have user1 and user2, the folders would be: Saves, containing an empty user1.emusaves file, and Saves.user2, containing an empty user2.emusaves file. Simple!
+Ideally this script would have some backup functionality that could move a copy of every savegame into it's own directory, but as for now it's just a simple way of "swapping memory cards" in use with certain emulators that don't let you store multiple savefiles.
